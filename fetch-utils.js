@@ -1,5 +1,5 @@
-const SUPABASE_URL = '';
-const SUPABASE_KEY = '';
+const SUPABASE_URL = 'https://xpcwmiycekdmuiqlbpcj.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTk0NDEzNSwiZXhwIjoxOTU3NTIwMTM1fQ.s-bg4m-T-UTMJNCRRmHf-cu9OLniJNes00ew6DxKah4';
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
@@ -16,7 +16,7 @@ export async function checkAuth() {
 
 export async function redirect() {
     if (await getUser()) {
-        location.replace('./main');
+        location.replace('./workshop');
     }
 }
 
