@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/snl6pcf.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/home.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>Join a Workshop</title>
+</head>
+
+<body>
+    <header>
+        <button id="redirect-workshop">Workshops</button>
+    </header>    
+
+    <main>
+        <section>
+            <form id="join-form">
+              <label for="participant-name">Participant:</label>
+              <input type="text" name="participant-name" placeholder="Participant Name" required>
+              <label for="workshop-select">Workshop:</label>
+              <select name="workshop-select" id="workshop-select" required>
+                <!-- 
+                <option value="workshop.id">workshop.name</option>
+                -->
+              </select>
+              <button type="submit" form="join-form" value="host workshop">Join Workshop</button>
+            </form>
+          </section>
+    </main>
+    <footer>
+       
+    </footer>
+    <script type="module" src="./join.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/snl6pcf.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/home.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>Host a Workshop</title>
+</head>
+
+<body>
+    <header>
+        <button id="redirect-workshop">Workshops</button>
+    </header>    
+
+    <main>
+        <section>
+            <section>
+            <form id="host-form">
+              <label for="host-name">Hosted by:</label>
+              <input type="text" name="host-name" placeholder="Host Name" required>
+              <label for="workshop-name">Workshop:</label>
+              <input type="text" name="workshop-name" placeholder="Workshop Name" required>
+              <button type="submit" form="host-form" value="host workshop">Host Workshop</button>
+            </form>
+          </section>
+    </main>
+    <footer>
+       
+    </footer>
+    <script type="module" src="./host.js"></script>
+</body>
+
+</html>
