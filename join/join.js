@@ -46,4 +46,6 @@ joinForm.addEventListener('submit', async(e) => {
         name,
         workshop_id
     });
+
+    window.location.href = '../workshop';
 });

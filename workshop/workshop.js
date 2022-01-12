@@ -26,10 +26,15 @@ window.addEventListener('load', async() => {
     console.log(workshops);
     workshopSection.textContent = '';
     for (let workshop of workshops) {
+        const workshopContainerEl = document.createElement('article');
         const workshopNameEl = document.createElement('h2');
+        const workshopHostEl = document.createElement('span');
         const participantContainerEl = document.createElement('div');
 
         workshopNameEl.textContent = `${workshop.name}`;
+        workshopHostEl.textContent = `Hosted by ${workshop.host}`;
+
+        workshopHostEl.classList.add('host');
 
         for (let participant of workshop.participants) {
             const participantsEl = document.createElement('span');
@@ -38,7 +43,8 @@ window.addEventListener('load', async() => {
             participantContainerEl.append(participantsEl);
         }
 
-        workshopSection.append(workshopNameEl, participantContainerEl);
+        workshopContainerEl.append(workshopNameEl, workshopHostEl, participantContainerEl);
+        workshopSection.append(workshopContainerEl);
     }
 });
 
