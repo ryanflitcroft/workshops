@@ -41,3 +41,13 @@ export async function logout() {
 function checkError({ data, error }) {
     return error ? console.error(error) : data;
 }
+
+//
+
+export async function getWorkshops() {
+    const response = await client
+        .from('workshops')
+        .select(`*, participants (*)`);
+ 
+    return checkError(response);
+}
