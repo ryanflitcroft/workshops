@@ -32,15 +32,12 @@ window.addEventListener('load', async() => {
         workshopNameEl.textContent = `${workshop.name}`;
 
         for (let participant of workshop.participants) {
-            console.log('hello' + participant);
-            // PROBLEM TO SOLVE: workshop.participants returning 0... hmm??
-
-            // const participantsEl = document.createElement('span');
-            // participantsEl.textContent = participant.name;
-
-            // participantContainerEl.append(participantsEl);
+            const participantsEl = document.createElement('span');
+            participantsEl.textContent = participant.name;
+    
+            participantContainerEl.append(participantsEl);
         }
-        
+
         workshopSection.append(workshopNameEl, participantContainerEl);
     }
 });
