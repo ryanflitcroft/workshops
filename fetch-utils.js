@@ -22,7 +22,8 @@ export async function redirect() {
 
 export async function signUpUser(email, password){
     const response = await client.auth.signUp({ email, password });
-    
+    await createProfile(email);
+
     return response.user;
 }
 
@@ -44,6 +45,14 @@ function checkError({ data, error }) {
 
 //
 
+export async function createProfile(email) {
+    const response = await client
+        .from('profiles')
+        .insert([{ email }]);
+
+    return checkError(response);
+}
+
 export async function getWorkshops() {
     const response = await client
         .from('workshops')
@@ -56,6 +65,14 @@ export async function joinWorkshop(participant) {
     const response = await client
         .from('participants')
         .insert([participant]);
+
+    return checkError(response);
+}
+
+export async function hostWorkshop(workshop) {
+    const response = await client
+        .from('workshops')
+        .insert([workshop]);
 
     return checkError(response);
 }

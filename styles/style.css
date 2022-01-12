@@ -69,6 +69,11 @@ section.control-section {
     border-top: 2px solid var(--color1);
 }
 
+form button {
+    position: absolute; /* maybe */
+    bottom: 0; /* maybe */
+}
+
 @media only screen and (min-width: 500px) {
 
     main {
