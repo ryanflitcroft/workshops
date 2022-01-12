@@ -1,4 +1,4 @@
-# NAME OF PROJECT
+# Workshop App
 
 ## Project Objectives
 
@@ -144,6 +144,6 @@ git checkout -b workOnANewBranch
 
     * createParticipant(participant) : create participant in Supabase and attach it to a workshop.
 
-    *deleteParticipant(id) : delete a participant in Supabase.
+    * deleteParticipant(id) : delete a participant in Supabase.
 
 *note*: TDD for each pure function

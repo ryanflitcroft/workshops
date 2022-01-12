@@ -1,4 +1,4 @@
-import { checkAuth, logout } from '../fetch-utils.js';
+import { checkAuth } from '../fetch-utils.js';
 
 const hostForm = document.querySelector('#host-form');
 
@@ -6,10 +6,10 @@ console.log(hostForm);
 
 checkAuth();
 
-const logoutButton = document.getElementById('logout');
+const redirectWorkshop = document.getElementById('redirect-workshop');
 
-logoutButton.addEventListener('click', () => {
-    logout();
+redirectWorkshop.addEventListener('click', () => {
+    window.location.href = '../workshop';
 });
 
 window.addEventListener('resize', () => {

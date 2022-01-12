@@ -8,14 +8,18 @@ console.log(joinForm, workshopSelect);
 
 checkAuth();
 
-const logoutButton = document.getElementById('logout');
+const redirectWorkshop = document.getElementById('redirect-workshop');
 
-logoutButton.addEventListener('click', () => {
-    logout();
+redirectWorkshop.addEventListener('click', () => {
+    window.location.href = '../workshop';
 });
 
 window.addEventListener('resize', () => {
     if (window.innerHeight > 565) {
         window.scrollTo(0, 0);
     }
+});
+
+window.addEventListener('load', async() => {
+    // fetch workshop, render and append to workshopSelect
 });
