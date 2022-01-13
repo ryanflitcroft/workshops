@@ -4,7 +4,7 @@ import { renderParticipant } from '../render-utils.js';
 
 const test = QUnit.test;
 
-skip('renderParticipant should take in an object and return a span element with a class equal to participant, and textContent of the value of the name property', (expect) => {
+test.skip('renderParticipant should take in an object and return a span element with a class equal to participant, and textContent of the value of the name property', (expect) => {
     //Arrange 
     // Set up your arguments and expectations
     const expected = '<span class="participant">Ryan</span>';
