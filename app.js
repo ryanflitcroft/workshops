@@ -10,7 +10,6 @@ signInForm.addEventListener('submit', async(e) => {
 
     const email = data.get('inEmail');
     const password = data.get('inPassword');
-    // console.log(email, password);
 
     const user = await signInUser(email, password);
 
@@ -33,7 +32,7 @@ signUpForm.addEventListener('submit', async(e) => {
     const password = data.get('upPassword');
 
     if (password.length < 6) {
-        alert('Password must contain 6 or more characters.')
+        alert('Password must contain 6 or more characters.');
     }
 
     const user = await signUpUser(email, password);
@@ -45,5 +44,4 @@ signUpForm.addEventListener('submit', async(e) => {
     } else {
         console.error(user);
     }
-
 });

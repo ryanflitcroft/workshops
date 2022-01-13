@@ -1,10 +1,8 @@
-import { checkAuth, getWorkshops, joinWorkshop, logout } from '../fetch-utils.js';
+import { checkAuth, getWorkshops, createParticipant } from '../fetch-utils.js';
 
 const joinForm = document.querySelector('#join-form');
 
 const workshopSelectEl = document.querySelector('#workshop-select');
-
-console.log(joinForm, workshopSelectEl);
 
 checkAuth();
 
@@ -21,7 +19,6 @@ window.addEventListener('resize', () => {
 });
 
 window.addEventListener('load', async() => {
-    // fetch workshop, render and append to workshopSelect
     const workshops = await getWorkshops();
     for (let workshop of workshops) {
         const workshopOptionEl = document.createElement('option');
@@ -42,8 +39,10 @@ joinForm.addEventListener('submit', async(e) => {
 
     joinForm.reset();
 
-    await joinWorkshop({
+    await createParticipant({
         name,
         workshop_id
     });
+
+    window.location.href = '../workshop';
 });
