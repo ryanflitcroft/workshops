@@ -2,7 +2,7 @@
 // import { example } from '../example.js';
 import { renderParticipant } from '../render-utils.js';
 
-const { skip } = QUnit;
+const test = QUnit.test;
 
 skip('renderParticipant should take in an object and return a span element with a class equal to participant, and textContent of the value of the name property', (expect) => {
     //Arrange 
