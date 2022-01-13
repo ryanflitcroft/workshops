@@ -5,7 +5,7 @@ import { renderParticipant } from '../render-utils.js';
 const test = QUnit.test;
 
 test('renderParticipant should take in an object and return a span element with a class equal to participant, and textContent of the value of the name property', (expect) => {
-    //Arrange
+    //Arrange 
     // Set up your arguments and expectations
     const expected = '<span class="participant">Ryan</span>';
     
