@@ -2,8 +2,6 @@ import { checkAuth, hostWorkshop } from '../fetch-utils.js';
 
 const hostForm = document.querySelector('#host-form');
 
-console.log(hostForm);
-
 checkAuth();
 
 const redirectWorkshop = document.getElementById('redirect-workshop');

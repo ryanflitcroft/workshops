@@ -4,8 +4,6 @@ const workshopSection = document.querySelector('#workshop-section');
 const joinButton = document.querySelector('#join-button');
 const hostButton = document.querySelector('#host-button');
 
-console.log(workshopSection, joinButton, hostButton);
-
 checkAuth();
 
 const logoutButton = document.getElementById('logout');
@@ -21,7 +19,6 @@ window.addEventListener('resize', () => {
 });
 
 window.addEventListener('load', async() => {
-    // fetch workshop and participant data, render and append to workshopSection
     const workshops = await getWorkshops();
     await displayWorkshops(workshops);
 });
@@ -31,7 +28,6 @@ joinButton.addEventListener('click', () => window.location.href = '../join');
 hostButton.addEventListener('click', () => window.location.href = '../host');
 
 async function displayWorkshops(workshops) {
-    console.log(workshops);
     workshopSection.textContent = '';
     for (let workshop of workshops) {
         const workshopContainerEl = document.createElement('article');

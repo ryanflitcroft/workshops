@@ -4,8 +4,6 @@ const joinForm = document.querySelector('#join-form');
 
 const workshopSelectEl = document.querySelector('#workshop-select');
 
-console.log(joinForm, workshopSelectEl);
-
 checkAuth();
 
 const redirectWorkshop = document.getElementById('redirect-workshop');
@@ -21,7 +19,6 @@ window.addEventListener('resize', () => {
 });
 
 window.addEventListener('load', async() => {
-    // fetch workshop, render and append to workshopSelect
     const workshops = await getWorkshops();
     for (let workshop of workshops) {
         const workshopOptionEl = document.createElement('option');
