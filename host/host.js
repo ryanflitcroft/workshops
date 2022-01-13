@@ -30,5 +30,5 @@ hostForm.addEventListener('submit', async(e) => {
         host: hostName
     });
 
-    // window.location.href = '../workshop';
+    window.location.href = '../workshop';
 });

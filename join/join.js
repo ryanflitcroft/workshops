@@ -1,4 +1,4 @@
-import { checkAuth, getWorkshops, joinWorkshop, logout } from '../fetch-utils.js';
+import { checkAuth, getWorkshops, createParticipant } from '../fetch-utils.js';
 
 const joinForm = document.querySelector('#join-form');
 
@@ -42,7 +42,7 @@ joinForm.addEventListener('submit', async(e) => {
 
     joinForm.reset();
 
-    await joinWorkshop({
+    await createParticipant({
         name,
         workshop_id
     });

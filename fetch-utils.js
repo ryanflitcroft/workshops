@@ -1,5 +1,5 @@
-const SUPABASE_URL = 'https://xpcwmiycekdmuiqlbpcj.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTk0NDEzNSwiZXhwIjoxOTU3NTIwMTM1fQ.s-bg4m-T-UTMJNCRRmHf-cu9OLniJNes00ew6DxKah4';
+const SUPABASE_URL = 'https://pchmglmquovmuzgjunif.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MjAzMDI0NCwiZXhwIjoxOTU3NjA2MjQ0fQ.wlEkaRcXAnwfYWGskN29UXpUAdpqv8WcXunW0aFQvKs';
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
@@ -22,7 +22,9 @@ export async function redirect() {
 
 export async function signUpUser(email, password){
     const response = await client.auth.signUp({ email, password });
-    await createProfile(email);
+
+    // COME BACK TO IT >>
+    // await createProfile(email);
 
     return response.user;
 }
@@ -45,13 +47,14 @@ function checkError({ data, error }) {
 
 //
 
-export async function createProfile(email) {
-    const response = await client
-        .from('profiles')
-        .insert([{ email }]);
+// COME BACK TO IT >>
+// export async function createProfile(email) {
+//     const response = await client
+//         .from('profiles')
+//         .insert([{ email }]);
 
-    return checkError(response);
-}
+//     return checkError(response);
+// }
 
 export async function getWorkshops() {
     const response = await client
@@ -61,10 +64,20 @@ export async function getWorkshops() {
     return checkError(response);
 }
 
-export async function joinWorkshop(participant) {
+export async function createParticipant(participant) {
     const response = await client
         .from('participants')
         .insert([participant]);
+
+    return checkError(response);
+}
+
+export async function deleteParticipant(id) {
+    const response = await client
+        .from('participants')
+        .delete()
+        .match({ id })
+        .single();
 
     return checkError(response);
 }

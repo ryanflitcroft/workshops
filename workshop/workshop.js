@@ -1,4 +1,4 @@
-import { checkAuth, logout, getWorkshops } from '../fetch-utils.js';
+import { checkAuth, logout, getWorkshops, deleteParticipant } from '../fetch-utils.js';
 
 const workshopSection = document.querySelector('#workshop-section');
 const joinButton = document.querySelector('#join-button');
@@ -23,6 +23,14 @@ window.addEventListener('resize', () => {
 window.addEventListener('load', async() => {
     // fetch workshop and participant data, render and append to workshopSection
     const workshops = await getWorkshops();
+    await displayWorkshops(workshops);
+});
+
+joinButton.addEventListener('click', () => window.location.href = '../join');
+
+hostButton.addEventListener('click', () => window.location.href = '../host');
+
+async function displayWorkshops(workshops) {
     console.log(workshops);
     workshopSection.textContent = '';
     for (let workshop of workshops) {
@@ -37,17 +45,28 @@ window.addEventListener('load', async() => {
         workshopHostEl.classList.add('host');
 
         for (let participant of workshop.participants) {
-            const participantsEl = document.createElement('span');
-            participantsEl.textContent = participant.name;
+            const participantsEl = renderParticipant(participant);
+
+            participantsEl.addEventListener('click', async() => {
+                await deleteParticipant(participant.id);
+                const workshops = await getWorkshops();
+                displayWorkshops(workshops);
+            });
     
             participantContainerEl.append(participantsEl);
+        
         }
 
         workshopContainerEl.append(workshopNameEl, workshopHostEl, participantContainerEl);
         workshopSection.append(workshopContainerEl);
     }
-});
+}
 
-joinButton.addEventListener('click', () => window.location.href = '../join');
+function renderParticipant(participant) {
+    const participantsEl = document.createElement('span');
+    participantsEl.textContent = participant.name;
 
-hostButton.addEventListener('click', () => window.location.href = '../host');
+    participantsEl.classList.add('participant');
+
+    return participantsEl;
+}
