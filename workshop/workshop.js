@@ -1,5 +1,7 @@
 import { checkAuth, logout, getWorkshops, deleteParticipant } from '../fetch-utils.js';
 
+import { renderParticipant } from '../render-utils.js';
+
 const workshopSection = document.querySelector('#workshop-section');
 const joinButton = document.querySelector('#join-button');
 const hostButton = document.querySelector('#host-button');
@@ -56,13 +58,4 @@ async function displayWorkshops(workshops) {
         workshopContainerEl.append(workshopNameEl, workshopHostEl, participantContainerEl);
         workshopSection.append(workshopContainerEl);
     }
-}
-
-function renderParticipant(participant) {
-    const participantsEl = document.createElement('span');
-    participantsEl.textContent = participant.name;
-
-    participantsEl.classList.add('participant');
-
-    return participantsEl;
 }
